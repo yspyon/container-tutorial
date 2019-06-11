@@ -4,6 +4,15 @@ This is extracted from [official Docker documentation](https://docs.docker.com/c
 ### Prerequisites
 Make sure you have already installed both Docker Engine and Docker Compose.
 You don’t need to install Python or Redis, as both are provided by Docker images.
+[Docker for Windows documentation including installation ](https://docs.docker.com/docker-for-windows/)
+
+I personally prefer to run docker from Ubuntu on Windows10 even though using Windows Docker Engine.
+If you want to install Ubuntu (or any other Linux distro) on windows 10, please follow instruction on this [link](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+You may need to expose Docker daemon on `tcp://localhost:2375`
+In the bash shell you may need to add following line in the `.profile` file.
+```sh
+export DOCKER_HOST=localhost:2375
+```
 
 In case you don't install docker-compose:
 ```sudo apt install docker-compose```
@@ -16,7 +25,7 @@ Define the application dependencies.
 $ mkdir composetest
 $ cd composetest
 ```
-2. Create a file called app.py in your project directory and paste this in:
+2. Create a file called `app.py` in your project directory and paste this in:
 ```
 import time
 import redis
@@ -42,7 +51,7 @@ def hello():
     return 'Hello World! I have been seen {} times.\n'.format(count)
 
 ```
-3. Create another file called requirements.txt in your project directory and paste this in:
+3. Create another file called `requirements.txt` in your project directory and paste this in:
 ```
 flask
 redis
