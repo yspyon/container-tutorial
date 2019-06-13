@@ -15,7 +15,11 @@ export DOCKER_HOST=localhost:2375
 ```
 
 In case you don't install docker-compose:
-```sudo apt install docker-compose```
+Install using following [link](https://docs.docker.com/compose/install/)
+You must not install by ```sudo apt install docker-compose``` since there is a bug.
+If you do, you cannot login docker registry while docker-compose installed that way.
+In case you did install with `apt` then, please remove it by `apt-get remove golang-docker-credential-helpers` and install through official document.
+
 
 ### Step 1: Setup
 Define the application dependencies.
